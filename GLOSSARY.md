@@ -15,7 +15,7 @@
 | fork / forking | การฟอร์ก (fork) | รันกรณีทดสอบในโปรเซสย่อย |
 | timeout | ไทม์เอาต์ | |
 | trait | เทรต (trait) | |
-| crate | ครีต | |
+| crate | เครต | |
 | macro | มาโคร | |
 | combinator | คอมบิเนเตอร์ (combinator) | เช่น `prop_map`, `prop_filter` |
 | arbitrary | ตามอำเภอใจ (arbitrary) | คง `Arbitrary` เมื่อหมายถึงเทรต |
@@ -52,7 +52,7 @@
 
 ## หลักการทั่วไป
 
-- ชื่อเครื่องมือ คำสั่ง CLI ตัวเลือก (flag) ชื่อครีต/เทรต/ชนิดข้อมูล และ URL **ไม่แปล** เช่น `proptest`, `proptest-derive`, `Strategy`, `Config`, `#[derive(Arbitrary)]`
+- ชื่อเครื่องมือ คำสั่ง CLI ตัวเลือก (flag) ชื่อเครต/เทรต/ชนิดข้อมูล และ URL **ไม่แปล** เช่น `proptest`, `proptest-derive`, `Strategy`, `Config`, `#[derive(Arbitrary)]`
 - โค้ดทุกบล็อก (``` ... ```) เก็บไว้ตามต้นฉบับทุกตัวอักษร รวมถึงคอมเมนต์ภายในโค้ด
 - ลิงก์ (ทั้ง inline และ reference-style) คง path เดิม เพื่อให้ mdbook ยัง build ได้
 - หัวข้อ (heading) แปลเป็นไทย ยกเว้นหัวข้อที่เป็นชื่อตัวปรับแต่งของ `proptest-derive` (เช่น `filter`, `weight`) ซึ่งคงไว้ตามเดิมเพราะเป็นชื่อ API

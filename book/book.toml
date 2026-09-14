@@ -1,7 +1,7 @@
 [book]
 language = "th"
 title = "Proptest (ฉบับภาษาไทย)"
-description = "เอกสารวิธีใช้สำหรับครีต proptest และ proptest-derive"
+description = "เอกสารวิธีใช้สำหรับเครต proptest และ proptest-derive"
 authors = ["Jason Lingle", "Mazdak Farrokhzad"]
 
 [output.html]
