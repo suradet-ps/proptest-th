@@ -7,4 +7,4 @@ authors = ["Jason Lingle", "Mazdak Farrokhzad"]
 [output.html]
 git-repository-url = "https://github.com/suradet-ps/proptest-th/tree/main/book/src"
 edit-url-template = "https://github.com/suradet-ps/proptest-th/edit/main/book/{path}"
-curly-quotes = true
+smart-punctuation = true
