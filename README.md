@@ -86,9 +86,9 @@ One stack, zero custom JS, several quiet helpers.
   failure persistence, forking, `no_std`, wasm, state machine
   testing, and the `proptest-derive` modifier and error references -
   Thai prose over untouched code.
-- **Glossaries** - `GLOSSARY.md` locks the vocabulary (property
-  testing = การทดสอบพร็อพเพอร์ตี, strategy = กลยุทธ์, shrinking =
-  การชริงก์), so chapter nine agrees with chapter two.
+- **Glossaries** - `GLOSSARY.md` locks the vocabulary (one Thai
+  term per concept, chosen once and reused), so chapter nine agrees
+  with chapter two.
 - **Verifies** - `scripts/verify-translation.ps1` diffs every code
   block (115 of them), heading level, and link target against
   upstream `proptest-rs/proptest` - byte-exact or it does not pass.
@@ -119,9 +119,9 @@ One stack, zero custom JS, several quiet helpers.
    byte-exact, and the anchors resolve.
 
 **The ceremony of the anchor** - mdbook slugs strip Thai tone marks
-and vowel signs (`ที่ถูกต้อง` becomes `ทีถูกตอง`). Anchors are read
-from the built HTML, written into the source, and re-verified - a
-guessed anchor is a broken link waiting to happen.
+and vowel signs, so a heading's anchor is never its plain spelling.
+Anchors are read from the built HTML, written into the source, and
+re-verified - a guessed anchor is a broken link waiting to happen.
 
 **The ceremony of the code block** - a translated command that is not
 byte-identical to the original is a regression, not a translation.
@@ -157,8 +157,8 @@ files (30 chapters + `SUMMARY.md`), and the link checker must report
 
 ```
   ─────────────────────────────────────────
-   ทุกพร็อพเพอร์ตีมีกรณีที่ล้มเหลวของมัน
-   ทุกหนังสือมีหน้าแรกของมัน
+   Every property has its counter-example
+   Every book has its first page
   ─────────────────────────────────────────
 ```
 
