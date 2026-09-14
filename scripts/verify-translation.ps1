@@ -87,6 +87,34 @@ function Normalize-LinkTarget($url) {
     return $trimmed
 }
 
+function Resolve-LinkTarget($url, $rel) {
+    $target = Normalize-LinkTarget $url
+    if ($target -eq '' -or $target.StartsWith('#') -or $target -match '^[a-z][a-z0-9+.-]*:') {
+        return $target
+    }
+    # Resolve local link targets (including root-absolute ones like /proptest/index.md)
+    # against the page's directory, so equivalent targets compare equal and the
+    # translation may use a relative link where upstream used a root-absolute one.
+    $dir = Split-Path ($rel -replace '\\','/') -Parent
+    if ($target.StartsWith('/')) {
+        $combined = $target.Substring(1)
+    } elseif ([string]::IsNullOrEmpty($dir)) {
+        $combined = $target
+    } else {
+        $combined = "$dir/$target"
+    }
+    $parts = New-Object System.Collections.Generic.List[string]
+    foreach ($seg in $combined -split '/') {
+        if ($seg -eq '' -or $seg -eq '.') { continue }
+        if ($seg -eq '..') {
+            if ($parts.Count -gt 0) { $parts.RemoveAt($parts.Count - 1) }
+            continue
+        }
+        $parts.Add($seg)
+    }
+    return ($parts -join '/')
+}
+
 $origFiles = Get-ChildItem -Recurse -File $orig -Filter *.md
 $fail = 0
 $total = 0
@@ -142,8 +170,8 @@ foreach ($f in $origFiles) {
         $fail++
     } else {
         for ($i = 0; $i -lt $or.Count; $i++) {
-            $ourl = Normalize-LinkTarget (($or[$i] -split ':\s*',2)[1])
-            $turl = Normalize-LinkTarget (($tr[$i] -split ':\s*',2)[1])
+            $ourl = Resolve-LinkTarget (($or[$i] -split ':\s*',2)[1]) $rel
+            $turl = Resolve-LinkTarget (($tr[$i] -split ':\s*',2)[1]) $rel
             if ($ourl -cne $turl) {
                 Write-Output "[FAIL] $rel : ref-link #$($i+1) url differs (orig='$ourl' trans='$turl')"
                 $fail++
@@ -151,8 +179,8 @@ foreach ($f in $origFiles) {
         }
     }
 
-    $oi = @(Get-InlineLinkTargets $f.FullName | ForEach-Object { Normalize-LinkTarget $_ })
-    $ti = @(Get-InlineLinkTargets $tPath | ForEach-Object { Normalize-LinkTarget $_ })
+    $oi = @(Get-InlineLinkTargets $f.FullName | ForEach-Object { Resolve-LinkTarget $_ $rel })
+    $ti = @(Get-InlineLinkTargets $tPath | ForEach-Object { Resolve-LinkTarget $_ $rel })
     $linkCount += $oi.Count
     if ($oi.Count -ne $ti.Count) {
         Write-Output "[FAIL] $rel : inline link count differs (orig=$($oi.Count) trans=$($ti.Count))"
