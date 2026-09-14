@@ -1,0 +1,10 @@
+[book]
+language = "th"
+title = "Proptest (ฉบับภาษาไทย)"
+description = "เอกสารวิธีใช้สำหรับครีต proptest และ proptest-derive"
+authors = ["Jason Lingle", "Mazdak Farrokhzad"]
+
+[output.html]
+git-repository-url = "https://github.com/suradet-ps/proptest-th/tree/main/book/src"
+edit-url-template = "https://github.com/suradet-ps/proptest-th/edit/main/book/{path}"
+curly-quotes = true
