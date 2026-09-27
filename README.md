@@ -1,20 +1,13 @@
 # proptest-th
 
-```
-██████╗  ██████╗   ██████╗ ██████╗  ████████╗███████╗ ███████╗ ████████╗         ████████╗██╗  ██╗
-██╔══██╗ ██╔══██╗ ██╔═══██╗██╔══██╗ ╚══██╔══╝██╔════╝ ██╔════╝ ╚══██╔══╝         ╚══██╔══╝██║  ██║
-██████╔╝ ██████╔╝ ██║   ██║██████╔╝    ██║   █████╗   ███████╗    ██║     █████╗    ██║   ███████║
-██╔═══╝  ██╔══██╗ ██║   ██║██╔═══╝     ██║   ██╔══╝   ╚════██║    ██║     ╚════╝    ██║   ██╔══██║
-██║      ██║  ██║ ╚██████╔╝██║         ██║   ███████╗ ███████║    ██║               ██║   ██║  ██║
-╚═╝      ╚═╝  ╚═╝  ╚═════╝ ╚═╝         ╚═╝   ╚══════╝ ╚══════╝    ╚═╝               ╚═╝   ╚═╝  ╚═╝
-```
+[![Deploy](https://github.com/suradet-ps/proptest-th/actions/workflows/docs.yml/badge.svg)](https://github.com/suradet-ps/proptest-th/actions/workflows/docs.yml)
+[![GitHub Pages](https://img.shields.io/badge/Pages-live-2ea44f)](https://suradet-ps.github.io/proptest-th/)
+[![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-blue.svg)](LICENSE-MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/suradet-ps/proptest-th/issues)
 
 ---
 
 ## ◆ PULSE
-
-[![GitHub Pages](https://img.shields.io/badge/Pages-live-2ea44f)](https://suradet-ps.github.io/proptest-th/)
-[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#-anatomy)
 
 A property has a counter-example, and a minimal one - proptest-th is
 the Thai bridge to that exact moment. This is the complete Thai
